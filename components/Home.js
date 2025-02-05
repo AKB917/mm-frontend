@@ -10,7 +10,7 @@ function Home() {
   const [likedMovies, setLikedMovies] = useState([]);
   const [moviesData, setMoviesData] = useState([])
   console.log(moviesData)
-  useEffect(() => {
+  useEffect(() => { 
     fetch('https://mymovies-backend-coral.vercel.app//movies')
       .then(response => response.json())
       .then(data => { 
