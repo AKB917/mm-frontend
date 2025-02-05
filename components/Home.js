@@ -15,7 +15,7 @@ function Home() {
       .then(response => response.json())
       .then(data => { 
         const newTab=[]
-        for (let movie of data.movie){
+        for (let movie of data.movies){
           newTab.push({
             title: movie.original_title,
             poster :  `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
