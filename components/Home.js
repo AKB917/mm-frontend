@@ -16,6 +16,7 @@ function Home() {
       .then(response => response.json())
       .then(data => { 
         const newTab=[]
+
         for (let movie of data.movies){
           newTab.push({
             title: movie.original_title,
@@ -24,6 +25,7 @@ function Home() {
             voteCount : movie.vote_count,
             overview : movie.overview.substring(0,250),
       })}
+      
         setMoviesData(newTab)
       });
   }, []);
