@@ -9,7 +9,8 @@ import styles from '../styles/Home.module.css';
 function Home() {
   const [likedMovies, setLikedMovies] = useState([]);
   const [moviesData, setMoviesData] = useState([])
-  console.log(moviesData)
+
+  //moviesData (import from Backend API)
   useEffect(() => { 
     fetch('https://mymovies-backend-coral.vercel.app/movies')
       .then(response => response.json())
@@ -26,10 +27,6 @@ function Home() {
         setMoviesData(newTab)
       });
   }, []);
-
- 
-
-
 
   // Liked movies (inverse data flow)
   const updateLikedMovies = (movieTitle) => {
