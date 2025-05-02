@@ -9,10 +9,15 @@ import styles from '../styles/Home.module.css';
 function Home() {
   const [likedMovies, setLikedMovies] = useState([]);
   const [moviesData, setMoviesData] = useState([])
+  const URLBACK = process.env.NEXT_PUBLIC_URLBACKEND;
+const URLPOSTER = process.env.NEXT_PUBLIC_URLPOSTER;
+
+console.log("ENV:", process.env);
+console.log("URLBACK:", process.env.NEXT_PUBLIC_URLBACKEND); 
 
   //moviesData (import from Backend API)
   useEffect(() => { 
-    fetch('https://mymovies-backend-coral.vercel.app/movies')
+    fetch(`${URLBACK}`)
       .then(response => response.json())
       .then(data => { 
         const newTab=[]
@@ -20,7 +25,7 @@ function Home() {
         for (let movie of data.movies){
           newTab.push({
             title: movie.original_title,
-            poster :  `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+            poster :  `${URLPOSTER}${movie.poster_path}`,
             voteAverage : movie.vote_average,
             voteCount : movie.vote_count,
             overview : movie.overview.substring(0,250),
